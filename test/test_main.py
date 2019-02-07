@@ -8,18 +8,14 @@ from main import ParkingLot
 
 def build_output(values: list, size: int = 10):
     # Builds the output given a list size and list of car names.
-    output = ['' for i in range(10)]
+    output = [values[i] if i < len(values) else '' for i in range(size)]
 
-    for i, v in enumerate(values):
-        output[i] = v
-
-    output = ', '.join(output)
-
-    return output
+    # String output
+    return ', '.join(output)
 
 
 class TestParkingLot(unittest.TestCase):
-    # Testing parkingg lot allocation and management.
+    # Testing parking lot allocation and management.
 
     def test_return_cars(self):
         # Wrong ticket number format (string)
